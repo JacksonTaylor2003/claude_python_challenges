@@ -69,21 +69,21 @@ def play_game():
 
             current_player = switch_player(current_player)
 
-    while True:
-        try:
-            user_input = int(input("Would you like to play again? Yes(1) | No(0)\n>>> "))
-        except ValueError as e:
-            print("Please select a valid option")
-            continue
+        while True:
+            try:
+                user_input = int(input("Would you like to play again? Yes(1) | No(0)\n>>> "))
+            except ValueError as e:
+                print("Please select a valid option")
+                continue
 
-        if user_input == 1:
-            break
-        elif user_input == 0:
-            play_again = False
-            break
-        else:
-            print("Please select a valid option")
-            continue
+            if user_input == 1:
+                break
+            elif user_input == 0:
+                play_again = False
+                break
+            else:
+                print("Please select a valid option")
+                continue
 
 
 #Start Game
