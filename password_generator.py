@@ -44,4 +44,46 @@ def generate_password(length=12, use_upper=True, use_lower=True, use_digits=True
 
     return "".join(password)
 
-print(generate_password())
+def password_tool():
+
+    def menu_input():
+        while True:
+            print("\033[H\033[J", end="")
+            try:
+                user_input = int(input("""1. Check password strength\n2. Generate a password\n3. Quit\n>>> """))
+            except ValueError as e:
+                user_input = None
+
+            if user_input == 1:
+                print(check_input())
+                input("Press enter to continue...")
+            elif user_input == 2:
+                print(generate_input())
+                input("Press enter to continue...")
+            elif user_input == 3:
+                print("Goodbye!")
+                break
+            else:
+                continue
+    def check_input():
+        print("\033[H\033[J", end="")
+        user_input = input("Please enter your password\n>>> ")
+        return check_strength(user_input)
+    def generate_input():
+        while True:
+            print("\033[H\033[J", end="")
+            user_input = input("Please enter a password length >= 4\n>>> ")
+            if user_input == "":
+                return generate_password()
+            else:
+                try:
+                    int(user_input)
+                except ValueError as e:
+                    continue 
+                if int(user_input) < 4:
+                    continue
+                return generate_password(int(user_input))
+
+    menu_input()
+
+password_tool()
